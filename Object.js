@@ -24,6 +24,7 @@ console.log(person.age); // undefined]
 
 
 // プロトタイプ継承
+
 // JavaScriptのオブジェクトはプロトタイプを通じて継承が可能です。これにより、あるオブジェクトが別のオブジェクトのプロパティやメソッドを利用できるようになります。
 function Person(firstName, lastName) {
   this.firstName = firstName;
@@ -38,9 +39,9 @@ let person1 = new Person("John", "Doe");
 console.log(person1.fullName()); // John Doe
 
 
-// Objectメソッドの使用
+// Object メソッド
 
-// JavaScriptのObject型には、オブジェクトを操作するための便利な静的メソッドが多数用意されています。
+// JavaScript の Object 型には、オブジェクトを操作するための便利な静的メソッドが多数用意されています。
 
 // キーのリストを取得
 console.log(Object.keys(person)); // ["firstName","lastName"]
