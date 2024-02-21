@@ -35,12 +35,18 @@ dog.speak();    // Rex barks.
 console.log(dog instanceof Dog);     // true
 console.log(dog instanceof Animal);  // true
 
-// この例では、Animalが親オブジェクト、Dogが子オブジェクトです。Dogのインスタンスは、Dog自身のプロトタイプからspeakメソッドを見つけ出し、それを実行します。もしDogのプロトタイプにspeakメソッドがなければ、JavaScriptはプロトタイプチェーンを辿ってAnimalのプロトタイプを検索し、そこに定義されているspeakメソッドを実行します。
+// この例では、Animalが親オブジェクト、Dogが子オブジェクトです。Dogのインスタンスは、Dog自身のプロトタイプからspeakメソッドを見つけ出し、それを実行します。
+
+// もしDogのプロトタイプにspeakメソッドがなければ、JavaScriptはプロトタイプチェーンを辿ってAnimalのプロトタイプを検索し、そこに定義されているspeakメソッドを実行します。
+
 // このように、プロトタイプチェーンはオブジェクト指向プログラミングの継承を実現するための強力なメカニズムです。  
 
 // JavaScriptにおいて、prototypeと__proto__は異なるものですが、関連性があります。
+
 // prototypeプロパティは、関数オブジェクトに存在します。
+
 // 新しいオブジェクトがその関数をコンストラクタとして使用して作成されるとき、新しいオブジェクトの内部プロトタイプ（[[Prototype]]）はその関数のprototypeプロパティを参照します。
+
 // つまり、prototypeプロパティは、その関数をコンストラクタとして使用して作成されたすべてのオブジェクトが継承するメソッドやプロパティを定義します。
 function Person(name) {
   this.name = name;

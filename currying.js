@@ -8,3 +8,4 @@ function add(a) {
 // カリー化された関数を使用
 const addFive = add(5);
 console.log(addFive(3)); // 8
+

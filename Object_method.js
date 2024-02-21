@@ -5,32 +5,6 @@ let person = {
     age: 30
 };
   
-// プロパティへのアクセス
-console.log(person.firstName); // John
-console.log(person["lastName"]); // Doe
-
-// プロパティの追加
-person.job = "Developer";
-console.log(person.job); // Developer
-
-// プロパティの削除
-delete person.age;
-console.log(person.age); // undefined]
-
-// プロトタイプ継承
-function Person(firstName, lastName) {
-  this.firstName = firstName;
-  this.lastName = lastName;
-}
-
-Person.prototype.fullName = function() {
-  return this.firstName + " " + this.lastName;
-};
-
-let person1 = new Person("John", "Doe");
-console.log(person1.fullName()); 
-// John Doe
-
 // Object メソッド
 // キーのリストを取得
 console.log(Object.keys(person)); 
