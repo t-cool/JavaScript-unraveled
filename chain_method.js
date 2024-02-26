@@ -12,3 +12,28 @@ let sum = [1,2,3,4,5]
     .reduce((acc, curr) => acc + curr, 0); // 合計を計算
 
 console.log(sum);
+
+// Map型のデータを用意
+let data = new Map([
+    [1, 'a'],
+    [2, 'b'],
+    [3, 'c'],
+    [4, 'd'],
+    [5, 'e']
+]);
+
+// Mapからキーのみを抽出し、偶数のキーに対応する値を2倍にして、その合計を計算
+let result = Array.from(data)
+    .filter(([key, value]) => key % 2 == 0)
+    .map(([key, value]) => key * 2)
+    .reduce((acc, curr) => acc + curr, 0);
+
+console.log(result);
+
+// Mapからキーのみを抽出し、奇数のキーに対応する値を3倍にして、その合計を計算
+let sum = Array.from(data)
+    .filter(([key, value]) => key % 2 != 0)
+    .map(([key, value]) => key * 3)
+    .reduce((acc, curr) => acc + curr, 0);
+
+console.log(sum);
