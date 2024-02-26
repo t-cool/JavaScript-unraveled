@@ -23,7 +23,7 @@ let data = new Map([
 ]);
 
 // Mapからキーのみを抽出し、偶数のキーに対応する値を2倍にして、その合計を計算
-let result = Array.from(data)
+let result2 = Array.from(data)
     .filter(([key, value]) => key % 2 == 0)
     .map(([key, value]) => key * 2)
     .reduce((acc, curr) => acc + curr, 0);
@@ -31,7 +31,7 @@ let result = Array.from(data)
 console.log(result);
 
 // Mapからキーのみを抽出し、奇数のキーに対応する値を3倍にして、その合計を計算
-let sum = Array.from(data)
+let sum2 = Array.from(data)
     .filter(([key, value]) => key % 2 != 0)
     .map(([key, value]) => key * 3)
     .reduce((acc, curr) => acc + curr, 0);
