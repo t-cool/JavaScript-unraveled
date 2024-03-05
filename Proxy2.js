@@ -1,33 +1,28 @@
-// Proxyを使って、オブジェクトへの読み取りと書き込みをインターセプトするデモ
+// 関数をターゲットとしたProxyを使って、Common Lispのマクロのような振る舞いをシミュレートするデモ
 
-// ターゲットオブジェクト
-const target = {
-    message1: "hello",
-    message2: "everyone"
-  };
+// ターゲット関数
+function greet(name) {
+    console.log(`Hello, ${name}!`);
+  }
   
   // ハンドラオブジェクト
   const handler = {
-    // プロパティの読み取りをインターセプト
-    get: function(target, prop, receiver) {
-      if (prop === "message1") {
-        return "こんにちは";
+    // 関数の呼び出しをインターセプト
+    apply: function(target, thisArg, argumentsList) {
+      // 特定の引数に基づいて異なる振る舞いをする
+      if (argumentsList[0] === "world") {
+        // "world"が引数の場合、別のメッセージを出力
+        console.log("Hello, world! This is a macro-like behavior in JavaScript.");
+      } else {
+        // それ以外の場合は、元の関数をその引数で呼び出す
+        return Reflect.apply(...arguments);
       }
-      return Reflect.get(...arguments);
-    },
-    // プロパティの書き込みをインターセプト
-    set: function(target, prop, value) {
-      if (prop === "message2") {
-        console.log(`message2が${value}に変更されました`);
-      }
-      return Reflect.set(...arguments);
     }
   };
   
   // Proxyオブジェクトの作成
-  const proxy = new Proxy(target, handler);
+  const proxyGreet = new Proxy(greet, handler);
   
-  console.log(proxy.message1); // "こんにちは" を出力
-  console.log(proxy.message2); // "everyone" を出力
-  
-  proxy.message2 = "みなさん"; // コンソールに "message2がみなさんに変更されました" と出力
+  // テスト
+  proxyGreet("world"); // "Hello, world! This is a macro-like behavior in JavaScript." を出力
+  proxyGreet("Alice"); // "Hello, Alice!" を出力
