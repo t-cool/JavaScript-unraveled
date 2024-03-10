@@ -38,8 +38,18 @@ console.log(personCopy);
 
 // オブジェクトのプロパティを凍結（変更不可にする）
 Object.freeze(person);
+//person.age = 35; // この変更は無視される
+//console.log(person.age); // 30
+/*
 person.age = 35; // この変更は無視される
-console.log(person.age); // 30
+           ^
+TypeError: Cannot assign to read only property 'age' of object '#<Object>'
+    at file:///Users/t-cool/Desktop/JavaScript-unraveled/Object_method.js:41:12
+    at ModuleJob.run (node:internal/modules/esm/module_job:218:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:329:24)
+    at async loadESM (node:internal/process/esm_loader:28:7)
+    at async handleMainPromise (node:internal/modules/run_main:113:12)
+*/
 
 // オブジェクトのプロパティの存在を確認
 console.log('age' in person); // true
