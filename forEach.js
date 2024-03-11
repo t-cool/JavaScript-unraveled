@@ -10,3 +10,20 @@ fruits.forEach(function(fruit, index) {
 // 0: apple
 // 1: banana
 // 2: cherry
+
+// 例2: 配列の各要素を大文字に変換して新しい配列を作成
+const upperCaseFruits = [];
+fruits.forEach(fruit => {
+  upperCaseFruits.push(fruit.toUpperCase());
+});
+console.log(upperCaseFruits);
+// 出力: ['APPLE', 'BANANA', 'CHERRY']
+
+// 例3: 各要素の長さを計算
+fruits.forEach(fruit => {
+  console.log(`${fruit} の長さは ${fruit.length} です。`);
+});
+// 出力:
+// apple の長さは 5 です。
+// banana の長さは 6 です。
+// cherry の長さは 6 です。
