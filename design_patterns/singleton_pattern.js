@@ -32,4 +32,5 @@ var Singleton = (function () {
 var instance1 = Singleton.getInstance();
 var instance2 = Singleton.getInstance();
 
-console.log(instance1 === instance2);  // trueを出力、同一のインスタンスであることを確認
+// trueを出力、同一のインスタンスであることを確認
+console.log(instance1 === instance2);  
