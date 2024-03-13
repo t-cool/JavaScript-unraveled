@@ -1,4 +1,4 @@
-// 関数をターゲットとしたProxyを使って、Common Lispのマクロのような振る舞いをシミュレートするデモ
+// 関数をターゲットとしたProxyを使って、Common Lispのマクロをシミュレートするデモ
 
 // ターゲット関数
 function greet(name) {
