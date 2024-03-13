@@ -76,7 +76,6 @@ loadJSON('https://api.example.com/data', function(err, data) {
         console.log("取得したデータ:", data);
     }
 });
-*/
 
 function myFunctionWithCallback(data, callback) {
     // 何らかの処理を行う
