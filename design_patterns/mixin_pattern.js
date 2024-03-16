@@ -13,7 +13,7 @@ var SerializableMixin = {
     serialize: function() {
       return JSON.stringify(this);
     }
-  };
+};
   
 var AreaMixin = {
   setArea: function(width, height) {
