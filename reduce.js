@@ -72,4 +72,14 @@ const people2 = [
   { name: 'Alice', job: 'Engineer' },
   { name: 'Bob', job: 'Designer' },
   { name: 'Charlie', job: 'Engineer' }
-]
+];
+const groupedByJob = people2.reduce((accumulator, currentValue) => {
+  const key = currentValue.job;
+  if (!accumulator[key]) {
+    accumulator[key] = [];
+  }
+  accumulator[key].push(currentValue);
+  return accumulator;
+}, {});
+console.log(groupedByJob); 
+// 出力: { Engineer: [{ name: 'Alice', job: 'Engineer' }, { name: 'Charlie', job: 'Engineer' }], Designer: [{ name: 'Bob', job: 'Designer' }] }
