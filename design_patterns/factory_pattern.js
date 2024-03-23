@@ -1,33 +1,41 @@
-// Factory パターンの実装例
+// Factory パターンの実装例 (ES5)
 
 // 製品のインターフェース
-class Product {
-    constructor(name) {
-      this.name = name;
-    }
-  
-    operate() {
-      throw new Error("Method 'operate()' must be implemented.");
-    }
+function Product(name) {
+    this.name = name;
   }
+  
+  Product.prototype.operate = function() {
+    throw new Error("Method 'operate()' must be implemented.");
+  };
   
   // 具体的な製品1
-  class ConcreteProductA extends Product {
-    operate() {
-      return `${this.name} is operating in a specific manner A.`;
-    }
+  function ConcreteProductA(name) {
+    Product.call(this, name);
   }
+  
+  ConcreteProductA.prototype = Object.create(Product.prototype);
+  ConcreteProductA.prototype.constructor = ConcreteProductA;
+  
+  ConcreteProductA.prototype.operate = function() {
+    return this.name + ' is operating in a specific manner A.';
+  };
   
   // 具体的な製品2
-  class ConcreteProductB extends Product {
-    operate() {
-      return `${this.name} is operating in a specific manner B.`;
-    }
+  function ConcreteProductB(name) {
+    Product.call(this, name);
   }
   
+  ConcreteProductB.prototype = Object.create(Product.prototype);
+  ConcreteProductB.prototype.constructor = ConcreteProductB;
+  
+  ConcreteProductB.prototype.operate = function() {
+    return this.name + ' is operating in a specific manner B.';
+  };
+  
   // Factory クラス
-  class Factory {
-    static createProduct(type) {
+  var Factory = {
+    createProduct: function(type) {
       switch (type) {
         case 'A':
           return new ConcreteProductA('ProductA');
@@ -37,11 +45,11 @@ class Product {
           throw new Error('Invalid type.');
       }
     }
-  }
+  };
   
   // 使用例
-  const productA = Factory.createProduct('A');
+  var productA = Factory.createProduct('A');
   console.log(productA.operate()); // ProductA is operating in a specific manner A.
   
-  const productB = Factory.createProduct('B');
+  var productB = Factory.createProduct('B');
   console.log(productB.operate()); // ProductB is operating in a specific manner B.
