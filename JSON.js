@@ -1,6 +1,4 @@
-// JSONデータを読み込むためのサンプルコードです。
-// この例では、'jsonExample.json' からデータを読み込み、
-// JSON形式の文字列をJavaScriptオブジェクトに変換する方法を示します。
+// JSONデータを読み込んで表形式で出力するためのサンプルコードです。
 
 // Node.jsの 'fs' モジュールを使用してファイルを読み込む
 const fs = require('fs');
@@ -11,20 +9,17 @@ const rawData = fs.readFileSync('jsonExample.json');
 // 読み込んだデータ（生の文字列）をJavaScriptオブジェクトに変換
 const studentData = JSON.parse(rawData);
 
-// 学生情報をコンソールに出力する
-console.log(studentData);
+// 表形式で学生情報を出力する関数
+function printStudentsTable(students) {
+  // ヘッダーを出力
+  console.log('学籍番号\t名前\t\t学年\t専攻');
+  console.log('--------------------------------------------------');
+  
+  // 各学生の情報を出力
+  students.forEach(student => {
+    console.log(`${student['学籍番号']}\t${student['名前']}\t${student['学年']}\t${student['専攻']}`);
+  });
+}
 
-// 特定の操作を行う例：全学生の名前をコンソールに出力
-studentData['学生情報'].forEach(student => {
-  console.log(student['名前']);
-});
-
-// JSONオブジェクトを文字列に変換する例
-const jsonString = JSON.stringify(studentData, null, 2);
-console.log(jsonString);
-
-// このコードはNode.js環境で実行することを想定しています。
-// JSON.parse() はJSON形式の文字列をJavaScriptオブジェクトに変換します。
-// JSON.stringify() はJavaScriptオブジェクトをJSON形式の文字列に変換します。
-// 第二引数と第三引数に null と 2 を指定することで、
-// 出力されるJSON文字列のフォーマットを整えることができます。
+// '学生情報' キーに対応する配列を取得して、表形式で出力
+printStudentsTable(studentData['学生情報']);
