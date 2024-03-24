@@ -24,7 +24,10 @@ console.log(totalAge);
 
 // 4. 配列の中で最大値を見つける
 const grades = [65, 43, 78, 91, 56, 89];
+// 配列gradesの中から最大値を見つけるためにreduceメソッドを使用します。
+// 初期値としてgrades[0]をaccumulatorに設定し、配列の各要素に対してMath.maxを使用して最大値を求めます。
 const maxGrade = grades.reduce((accumulator, currentValue) => Math.max(accumulator, currentValue), grades[0]);
+// 計算された最大値をコンソールに出力します。
 console.log(maxGrade); 
 // 出力: 91
 

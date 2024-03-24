@@ -1,4 +1,5 @@
 const Bird = (function() {
+    
     // プライベート変数と関数
     let name = '';
     let sound = '';
