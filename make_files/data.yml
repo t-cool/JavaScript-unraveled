@@ -1,0 +1,15 @@
+name: folder_a
+type: folder
+children:
+  - name: file_a.txt
+    type: file
+  - name: folder_b
+    type: folder
+    children:
+      - name: file_b.txt
+        type: file
+      - name: folder_c
+        type: folder
+        children:
+          - name: file_c.txt
+            type: file
